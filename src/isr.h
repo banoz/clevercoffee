@@ -18,8 +18,6 @@ unsigned long windowStartTime;
 unsigned int windowSize = 1000;
 
 void IRAM_ATTR onTimer() {
-    timerAlarmWrite(timer, 10000, true);
-
     if (pidOutput <= isrCounter) {
         heaterRelay.off();
     }
@@ -39,19 +37,15 @@ void IRAM_ATTR onTimer() {
  * @brief Initialize hardware timers
  */
 void initTimer1(void) {
-    timer = timerBegin(0, 80, true);
-    timerAttachInterrupt(timer, &onTimer, true);
-    timerAlarmWrite(timer, 10000, true);
+    timer = timerBegin(1 * 1000 * 1000); // 1 MHz
+    timerAttachInterrupt(timer, &onTimer);
+    timerAlarm(timer, 10000, true, 0); // 100 Hz
 }
 
 void enableTimer1(void) {
-    timerAlarmEnable(timer);
+    timerRestart(timer);
 }
 
 void disableTimer1(void) {
-    timerAlarmDisable(timer);
-}
-
-bool isTimer1Enabled(void) {
-    return timerAlarmEnabled(timer);
+    timerStop(timer);
 }

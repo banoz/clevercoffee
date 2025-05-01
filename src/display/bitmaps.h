@@ -29,36 +29,36 @@
 // clang-format off
 
 static const unsigned char Antenna_OK_Icon[] U8X8_PROGMEM = {
-    B00011111,
-    B00010101,
-    B00010101,
-    B00001110,
-    B00000100,
-    B00000100,
-    B00000100,
-    B00000100
+    0b00011111,
+    0b00010101,
+    0b00010101,
+    0b00001110,
+    0b00000100,
+    0b00000100,
+    0b00000100,
+    0b00000100
 };
 
 static const unsigned char Antenna_NOK_Icon[] U8X8_PROGMEM = {
-    B00111101,
-    B00100010,
-    B00100100,
-    B00001000,
-    B00010000,
-    B00101000,
-    B01001000,
-    B10001000
+    0b00111101,
+    0b00100010,
+    0b00100100,
+    0b00001000,
+    0b00010000,
+    0b00101000,
+    0b01001000,
+    0b10001000
 };
 
 static const unsigned char Water_Tank_Empty_Icon[] U8X8_PROGMEM = {
-    B00001001,
-    B01001010,
-    B00011100,
-    B00010100,
-    B00101110,
-    B00111110,
-    B01011100,
-    B10000000
+    0b00001001,
+    0b01001010,
+    0b00011100,
+    0b00010100,
+    0b00101110,
+    0b00111110,
+    0b01011100,
+    0b10000000
 };
 
 static const unsigned char CleverCoffee_Logo[] U8X8_PROGMEM = {

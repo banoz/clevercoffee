@@ -109,7 +109,7 @@ class SysPara {
             int stoStatus;
             if (_stoItemId < STO_ITEM__LAST_ENUM) { // valid storage ID?
                 // use dummy variable to comply with storage API
-                if ((stoStatus = storageGet(_stoItemId, _dummyCur)) == 0) {
+                if ((stoStatus = getNumber(_stoItemId, _dummyCur)) == 0) {
                     if ((_dummyCur >= _data.min) && (_dummyCur <= _data.max)) { // did we read a valid value?
                         *_data.curPtr = _dummyCur;                              // yes -> set data to new value
                     }
@@ -150,7 +150,7 @@ class SysPara {
         int setStorage(bool commit = false) {
             if (_stoItemId < STO_ITEM__LAST_ENUM) {
                 if ((*_data.curPtr >= _data.min) && (*_data.curPtr <= _data.max)) {
-                    return storageSet(_stoItemId, *_data.curPtr, commit);
+                    return setNumber(_stoItemId, *_data.curPtr, commit);
                 }
                 else {
                     LOGF(DEBUG, "value outside of allowed range! (item: %i)", _stoItemId);
